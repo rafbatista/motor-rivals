@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #24211e;
+}
+
+h1 {
+  font-family: 'Cinzel', serif;
+  color: #bfb39a;
+  font-size: 40px;
+}
