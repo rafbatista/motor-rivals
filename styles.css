@@ -9,12 +9,20 @@ body {
 h1 {
   font-family: 'Cinzel', serif;
   color: #bfb39a;
-  font-size: 40px;
+  margin: 2% auto 0%;
 }
 
-h2{
+h2 {
   font-family: 'Cinzel', serif;
   color: white;
-  font-size: 32px;
-  margin: auto;
+  font-size: 20px;
+  margin: 2%;
+}
+
+h3 {
+  font-family: 'Cinzel', serif;
+  color: #bfb39a;
+  text-align: center;
+  margin-top: 10%;
+  font-size: 30px;
 }
