@@ -6,6 +6,11 @@ body {
   background-color: #24211e;
 }
 
+.col-m1 {
+  border: solid 1px black;
+  background-color: white;
+}
+
 h1 {
   font-family: 'Cinzel', serif;
   color: #bfb39a;
@@ -23,6 +28,15 @@ h3 {
   font-family: 'Cinzel', serif;
   color: #bfb39a;
   text-align: center;
-  margin-top: 10%;
+  margin: 30% auto;
   font-size: 30px;
+}
+
+.icon-title {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.car-icon {
+  width: 100%;
 }
