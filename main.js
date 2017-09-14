@@ -66,6 +66,7 @@ var cars = [
   },
 
   {
+    id: 5,
     year: 2017,
     make: 'Lexus',
     model: 'RC 200t',
@@ -81,6 +82,7 @@ var cars = [
     fuelEconomy: '22 city / 32 highway'
   },
   {
+    id: 6,
     year: 2018,
     make: 'Mercedez-Benz',
     model: 'C300 Coupe',
