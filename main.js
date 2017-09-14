@@ -47,26 +47,26 @@ function renderCar(car) {
   var $car = document.createElement('div')
   $car.setAttribute('class', 'col s3 car-container')
 
-  var $carlink = document.createElement('a')
-  $carlink.setAttribute('class', 'icon-title')
-  $carlink.setAttribute('href', '')
-  $carlink.textContent = car.year + ' ' + car.make + ' ' + car.model
+  var $carLink = document.createElement('a')
+  $carLink.setAttribute('class', 'icon-title')
+  $carLink.setAttribute('href', '')
+  $carLink.textContent = car.year + ' ' + car.make + ' ' + car.model
 
-  var $carimg = document.createElement('img')
-  $carimg.setAttribute('class', 'car-icon')
-  $carimg.setAttribute('src', car.imgSrc)
-  $carimg.setAttribute('alt', car.year + ' ' + car.make + ' ' + car.model)
+  var $carImg = document.createElement('img')
+  $carImg.setAttribute('class', 'car-icon')
+  $carImg.setAttribute('src', car.imgSrc)
+  $carImg.setAttribute('alt', car.year + ' ' + car.make + ' ' + car.model)
 
-  $car.appendChild($carlink)
-  $car.appendChild($carimg)
+  $car.appendChild($carLink)
+  $car.appendChild($carImg)
 
   return $car
 }
 
 function createCarLinks(cars) {
-  var $carlist = document.querySelector('.car-list')
+  var $carList = document.querySelector('.car-list')
   for (var i = 0; i < cars.length; i++) {
-    $carlist.appendChild(renderCar(cars[i]))
+    $carList.appendChild(renderCar(cars[i]))
   }
 }
 
