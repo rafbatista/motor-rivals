@@ -118,8 +118,12 @@ function renderCar(car) {
     <img class="car-icon" src="images/audi-a5-2018.jpg" alt="2018 Audi A5"/>
   </div> */
 
+  var $carPosition = document.createElement('div')
+  $carPosition.setAttribute('class', 'col s3')
+
   var $car = document.createElement('div')
-  $car.setAttribute('class', 'col s3 car-container')
+  $car.setAttribute('class', 'car-container')
+  $car.setAttribute('id', car.id)
 
   var $carLink = document.createElement('a')
   $carLink.setAttribute('class', 'icon-title')
@@ -131,20 +135,169 @@ function renderCar(car) {
   $carImg.setAttribute('src', car.imgSrc)
   $carImg.setAttribute('alt', car.year + ' ' + car.make + ' ' + car.model)
 
+  $carPosition.appendChild($car)
   $car.appendChild($carLink)
   $car.appendChild($carImg)
 
-  return $car
+  return $carPosition
 }
 
+var $carList = document.querySelector('.car-list')
+
 function createCarLinks(cars) {
-  var $carList = document.querySelector('.car-list')
   for (var i = 0; i < cars.length; i++) {
     $carList.appendChild(renderCar(cars[i]))
   }
 }
-
+/* Calling the above function */
 createCarLinks(cars)
+
+var $specsList = document.querySelector('.car-specs-list')
+
+function renderSpecificCar(car) {
+
+  var $carHeaderPos = document.createElement('div')
+  $carHeaderPos.setAttribute('class', 'col s12')
+  var $carHeader = document.createElement('h3')
+  $carHeader.setAttribute('class', 'specs-header')
+  $carHeader.textContent = car.year + ' ' + car.make + ' ' + car.model
+
+  var $carImg = document.createElement('img')
+  $carImg.setAttribute('class', 'col s5 specs-img')
+  $carImg.setAttribute('src', car.imgSrc)
+  $carImg.setAttribute('alt', car.year + ' ' + car.make + ' ' + car.model)
+
+  function renderCarSpecs() {
+
+    var $carSpecs = document.createElement('div')
+    $carSpecs.setAttribute('class', 'col s6 push-s2 car-specs')
+    $carSpecs.setAttribute('data-number', car.id)
+
+    var firstSpecTitle = document.createElement('span')
+    var firstSpec = document.createTextNode(car.specifications.vehicleType)
+    var firstLineBreak = document.createElement('br')
+    var firstBold = document.createElement('strong')
+    firstBold.textContent = 'Vehicle Type: '
+    firstSpecTitle.appendChild(firstBold)
+    firstSpecTitle.appendChild(firstSpec)
+
+    var secondSpecTitle = document.createElement('span')
+    var secondSpec = document.createTextNode(car.specifications.msrp)
+    var secondLineBreak = document.createElement('br')
+    var secondBold = document.createElement('strong')
+    secondBold.textContent = 'MSRP: '
+    secondSpecTitle.appendChild(secondBold)
+    secondSpecTitle.appendChild(secondSpec)
+
+    var thirdSpecTitle = document.createElement('span')
+    var thirdSpec = document.createTextNode(car.specifications.engineType)
+    var thirdLineBreak = document.createElement('br')
+    var thirdBold = document.createElement('strong')
+    thirdBold.textContent = 'Engine Type: '
+    thirdSpecTitle.appendChild(thirdBold)
+    thirdSpecTitle.appendChild(thirdSpec)
+
+    var fourthSpecTitle = document.createElement('span')
+    var fourthSpec = document.createTextNode(car.specifications.displacement)
+    var fourthLineBreak = document.createElement('br')
+    var fourthBold = document.createElement('strong')
+    fourthBold.textContent = 'Engine Displacement: '
+    fourthSpecTitle.appendChild(fourthBold)
+    fourthSpecTitle.appendChild(fourthSpec)
+
+    var fifthSpecTitle = document.createElement('span')
+    var fifthSpec = document.createTextNode(car.specifications.transmission)
+    var fifthLineBreak = document.createElement('br')
+    var fifthBold = document.createElement('strong')
+    fifthBold.textContent = 'Transmission Type: '
+    fifthSpecTitle.appendChild(fifthBold)
+    fifthSpecTitle.appendChild(fifthSpec)
+
+    var sixthSpecTitle = document.createElement('span')
+    var sixthSpec = document.createTextNode(car.specifications.zeroToSixty)
+    var sixthLineBreak = document.createElement('br')
+    var sixthBold = document.createElement('strong')
+    sixthBold.textContent = '0 to 60mph: '
+    sixthSpecTitle.appendChild(sixthBold)
+    sixthSpecTitle.appendChild(sixthSpec)
+
+    var seventhSpecTitle = document.createElement('span')
+    var seventhSpec = document.createTextNode(car.specifications.dimensions)
+    var seventhLineBreak = document.createElement('br')
+    var seventhBold = document.createElement('strong')
+    seventhBold.textContent = 'Dimensions: '
+    seventhSpecTitle.appendChild(seventhBold)
+    seventhSpecTitle.appendChild(seventhSpec)
+
+    var eighthSpecTitle = document.createElement('span')
+    var eighthSpec = document.createTextNode(car.specifications.curbWeight)
+    var eighthLineBreak = document.createElement('br')
+    var eighthBold = document.createElement('strong')
+    eighthBold.textContent = 'Curb Weight: '
+    eighthSpecTitle.appendChild(eighthBold)
+    eighthSpecTitle.appendChild(eighthSpec)
+
+    var ninthSpecTitle = document.createElement('span')
+    var ninthSpec = document.createTextNode(car.specifications.fuelEconomy)
+    var ninthLineBreak = document.createElement('br')
+    var ninthBold = document.createElement('strong')
+    ninthBold.textContent = 'Fuel Economy: '
+    ninthSpecTitle.appendChild(ninthBold)
+    ninthSpecTitle.appendChild(ninthSpec)
+
+    $carSpecs.appendChild(firstSpecTitle)
+    $carSpecs.appendChild(firstLineBreak)
+
+    $carSpecs.appendChild(secondSpecTitle)
+    $carSpecs.appendChild(secondLineBreak)
+
+    $carSpecs.appendChild(thirdSpecTitle)
+    $carSpecs.appendChild(thirdLineBreak)
+
+    $carSpecs.appendChild(fourthSpecTitle)
+    $carSpecs.appendChild(fourthLineBreak)
+
+    $carSpecs.appendChild(fifthSpecTitle)
+    $carSpecs.appendChild(fifthLineBreak)
+
+    $carSpecs.appendChild(sixthSpecTitle)
+    $carSpecs.appendChild(sixthLineBreak)
+
+    $carSpecs.appendChild(seventhSpecTitle)
+    $carSpecs.appendChild(seventhLineBreak)
+
+    $carSpecs.appendChild(eighthSpecTitle)
+    $carSpecs.appendChild(eighthLineBreak)
+
+    $carSpecs.appendChild(ninthSpecTitle)
+    $carSpecs.appendChild(ninthLineBreak)
+
+    return $carSpecs
+  }
+
+  $specsList.appendChild($carHeaderPos)
+  $carHeaderPos.appendChild($carHeader)
+  $specsList.appendChild($carImg)
+  $specsList.appendChild(renderCarSpecs(car))
+
+  return $specsList
+}
+
+function createCarSpecs(car) {
+  for (var i = 0; i < car.length; i++) {
+    renderSpecificCar(car[i])
+  }
+}
+
+createCarSpecs(cars)
+
+$carList.addEventListener('click', function (event) {
+  var $car = event.target.closest('.car-container')
+  if ($car !== null) {
+    $specsList.classList.remove('hidden')
+    $carList.classList.add('hidden')
+  }
+})
 
 function findCarById(id, carlist) {
   for (var i = 0; i < carlist.length; i++) {
@@ -153,67 +306,4 @@ function findCarById(id, carlist) {
       return car
     }
   }
-}
-
-function renderCarSpecs(car) {
-
-  var $carSpecs = document.createElement('div')
-  $carSpecs.setAttribute('class', 'car-specs')
-  $carSpecs.setAttribute('id', car.id)
-
-  var firstSpec = document.createTextNode('Vehicle Type: ' + car.specifications.vehicleType)
-  var firstLineBreak = document.createElement('br')
-
-  var secondSpec = document.createTextNode('MSRP: ' + car.specifications.msrp)
-  var secondLineBreak = document.createElement('br')
-
-  var thirdSpec = document.createTextNode('Engine Type: ' + car.specifications.engineType)
-  var thirdLineBreak = document.createElement('br')
-
-  var fourthSpec = document.createTextNode('Engine Displacement: ' + car.specifications.displacement)
-  var fourthLineBreak = document.createElement('br')
-
-  var fifthSpec = document.createTextNode('Transmission Type: ' + car.specifications.transmission)
-  var fifthLineBreak = document.createElement('br')
-
-  var sixthSpec = document.createTextNode('0 to 60mph: ' + car.specifications.zeroToSixty)
-  var sixthLineBreak = document.createElement('br')
-
-  var seventhSpec = document.createTextNode('Dimensions: ' + car.specifications.dimensions)
-  var seventhLineBreak = document.createElement('br')
-
-  var eighthSpec = document.createTextNode('Curb Weight: ' + car.specifications.curbWeight)
-  var eighthLineBreak = document.createElement('br')
-
-  var ninthSpec = document.createTextNode('Fuel Economy: ' + car.specifications.fuelEconomy)
-  var ninthLineBreak = document.createElement('br')
-
-  $carSpecs.appendChild(firstSpec)
-  $carSpecs.appendChild(firstLineBreak)
-
-  $carSpecs.appendChild(secondSpec)
-  $carSpecs.appendChild(secondLineBreak)
-
-  $carSpecs.appendChild(thirdSpec)
-  $carSpecs.appendChild(thirdLineBreak)
-
-  $carSpecs.appendChild(fourthSpec)
-  $carSpecs.appendChild(fourthLineBreak)
-
-  $carSpecs.appendChild(fifthSpec)
-  $carSpecs.appendChild(fifthLineBreak)
-
-  $carSpecs.appendChild(sixthSpec)
-  $carSpecs.appendChild(sixthLineBreak)
-
-  $carSpecs.appendChild(seventhSpec)
-  $carSpecs.appendChild(seventhLineBreak)
-
-  $carSpecs.appendChild(eighthSpec)
-  $carSpecs.appendChild(eighthLineBreak)
-
-  $carSpecs.appendChild(ninthSpec)
-  $carSpecs.appendChild(ninthLineBreak)
-
-  return $carSpecs
 }
