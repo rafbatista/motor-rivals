@@ -273,10 +273,28 @@ function renderSpecificCar(car) {
     return $carSpecs
   }
 
+  var $buttonContainer = document.createElement('div')
+  $buttonContainer.setAttribute('class', 'col s12 button-container')
+
+  var $returnButton = document.createElement('button')
+  $returnButton.setAttribute('class', 'col s4 pull-s4 spec-button')
+  $returnButton.setAttribute('id', 'return-button')
+  $returnButton.setAttribute('type', 'button')
+  $returnButton.textContent = 'Return to All Cars'
+
+  var $compareButton = document.createElement('button')
+  $compareButton.setAttribute('class', 'col s4 push-s7 spec-button')
+  $compareButton.setAttribute('id', 'compare-button')
+  $compareButton.setAttribute('type', 'button')
+  $compareButton.textContent = 'Add Car for Comparison'
+
   $carSpecContainer.appendChild($carHeaderPos)
   $carHeaderPos.appendChild($carHeader)
   $carSpecContainer.appendChild($carImg)
   $carSpecContainer.appendChild(renderCarSpecs(car))
+  $carSpecContainer.appendChild($buttonContainer)
+  $buttonContainer.appendChild($compareButton)
+  $buttonContainer.appendChild($returnButton)
 
   return $carSpecContainer
 }
@@ -292,11 +310,25 @@ function findCarById(id, carlist) {
 
 $carList.addEventListener('click', function (event) {
   var $car = event.target.closest('.car-container')
+
   if ($car !== null) {
     var carId = parseInt($car.getAttribute('id'))
     var carInfo = findCarById(carId, cars)
     $specsList.innerHTML = ''
     $specsList.appendChild(renderSpecificCar(carInfo))
     $carList.classList.add('hidden')
+    $specsList.classList.remove('hidden')
+  }
+})
+
+$specsList.addEventListener('click', function (event) {
+  var specButton = event.target.getAttribute('id')
+  if (specButton === 'return-button') {
+    $specsList.classList.add('hidden')
+    $carList.classList.remove('hidden')
+  }
+  else if (specButton === 'compare-button') {
+    $specsList.classList.add('hidden')
+    $carList.classList.remove('hidden')
   }
 })
