@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-
 var cars = [
   {
     id: 1,
@@ -149,7 +147,7 @@ function createCarLinks(cars) {
     $carList.appendChild(renderCar(cars[i]))
   }
 }
-/* Calling the above function */
+
 createCarLinks(cars)
 
 var $specsList = document.querySelector('.car-specs-list')
