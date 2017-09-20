@@ -109,6 +109,8 @@ var cars = [
   }
 ]
 
+var carComparisonList = []
+
 function renderCar(car) {
   /*
   <div class="col s3">
@@ -144,7 +146,9 @@ var $carList = document.querySelector('.car-list')
 
 function createCarLinks(cars) {
   for (var i = 0; i < cars.length; i++) {
-    $carList.appendChild(renderCar(cars[i]))
+    if (!carComparisonList.includes(cars[i])) {
+      $carList.appendChild(renderCar(cars[i]))
+    }
   }
 }
 
@@ -312,23 +316,36 @@ $carList.addEventListener('click', function (event) {
   var $car = event.target.closest('.car-container')
 
   if ($car !== null) {
+    var $carListHeading = document.querySelector('h3')
     var carId = parseInt($car.getAttribute('id'))
     var carInfo = findCarById(carId, cars)
     $specsList.innerHTML = ''
     $specsList.appendChild(renderSpecificCar(carInfo))
     $carList.classList.add('hidden')
+    $carListHeading.classList.add('hidden')
     $specsList.classList.remove('hidden')
   }
 })
 
 $specsList.addEventListener('click', function (event) {
+  if (event.target.tagName !== 'BUTTON') {
+    return
+  }
   var specButton = event.target.getAttribute('id')
+  var $carListHeading = document.querySelector('h3')
   if (specButton === 'return-button') {
-    $specsList.classList.add('hidden')
-    $carList.classList.remove('hidden')
+    $carListHeading.classList.remove('hidden')
   }
-  else if (specButton === 'compare-button') {
-    $specsList.classList.add('hidden')
-    $carList.classList.remove('hidden')
+  if (specButton === 'compare-button') {
+    $carListHeading.classList.remove('hidden')
+    $carList.innerHTML = ''
+    var carSpecId = parseInt($specsList.firstElementChild.getAttribute('data-number'))
+    var car = findCarById(carSpecId, cars)
+    if (carComparisonList.length < 2) {
+      carComparisonList.push(car)
+    }
+    createCarLinks(cars)
   }
+  $specsList.classList.add('hidden')
+  $carList.classList.remove('hidden')
 })
