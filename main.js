@@ -142,7 +142,9 @@ function renderCar(car) {
   return $carPosition
 }
 
+var $carListHeading = document.querySelector('h3')
 var $carList = document.querySelector('.car-list')
+var $specsList = document.querySelector('.car-specs-list')
 
 function createCarLinks(cars) {
   for (var i = 0; i < cars.length; i++) {
@@ -153,8 +155,6 @@ function createCarLinks(cars) {
 }
 
 createCarLinks(cars)
-
-var $specsList = document.querySelector('.car-specs-list')
 
 function renderSpecificCar(car) {
   var $carSpecContainer = document.createElement('div')
@@ -316,7 +316,6 @@ $carList.addEventListener('click', function (event) {
   var $car = event.target.closest('.car-container')
 
   if ($car !== null) {
-    var $carListHeading = document.querySelector('h3')
     var carId = parseInt($car.getAttribute('id'))
     var carInfo = findCarById(carId, cars)
     $specsList.innerHTML = ''
@@ -332,12 +331,12 @@ $specsList.addEventListener('click', function (event) {
     return
   }
   var specButton = event.target.getAttribute('id')
-  var $carListHeading = document.querySelector('h3')
   if (specButton === 'return-button') {
     $carListHeading.classList.remove('hidden')
   }
   if (specButton === 'compare-button') {
     $carListHeading.classList.remove('hidden')
+    $carListHeading.textContent = 'Please choose one more car for comparison'
     $carList.innerHTML = ''
     var carSpecId = parseInt($specsList.firstElementChild.getAttribute('data-number'))
     var car = findCarById(carSpecId, cars)
