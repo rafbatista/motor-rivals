@@ -145,6 +145,7 @@ function renderCar(car) {
 var $carListHeading = document.querySelector('h3')
 var $carList = document.querySelector('.car-list')
 var $specsList = document.querySelector('.car-specs-list')
+var $compareList = document.querySelector('.car-compare-list')
 
 function createCarLinks(cars) {
   for (var i = 0; i < cars.length; i++) {
@@ -347,4 +348,13 @@ $specsList.addEventListener('click', function (event) {
   }
   $specsList.classList.add('hidden')
   $carList.classList.remove('hidden')
+})
+
+$specsList.addEventListener('click', function (event) {
+  if (carComparisonList.length === 2) {
+    $specsList.classList.add('hidden')
+    $carList.classList.add('hidden')
+    $compareList.classList.remove('hidden')
+    $carListHeading.textContent = 'Car Comparison'
+  }
 })
