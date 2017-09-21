@@ -27,7 +27,7 @@ var cars = [
       vehicleType: 'Front-engine, Rear-wheel-drive',
       msrp: '$43,300',
       engineType: 'Turbocharged 2.0L inline-4-cylinder',
-      displacement: 'Power: 248 hp @ 5200 rpm, Torque: 295 lb-ft @ 1450 rpm',
+      displacement: 'Power: 248 hp @ 5200 rpm, Torque: 258 lb-ft @ 1450 rpm',
       transmission: ' 8-speed automatic with manual shifting mode (6-speed manual optional)',
       zeroToSixty: '5.5 secs',
       dimensions: '183″ L x 72″ W x 54.2″ H',
@@ -356,5 +356,99 @@ $specsList.addEventListener('click', function (event) {
     $carList.classList.add('hidden')
     $compareList.classList.remove('hidden')
     $carListHeading.textContent = 'Car Comparison'
+    renderCarCompareInfo(carComparisonList)
   }
+})
+
+function renderCarCompareInfo(car) {
+  var $firstCarImg = document.querySelector('.first-compare-img')
+  var $carImgOne = document.createElement('img')
+  $carImgOne.setAttribute('class', 'car-icon')
+  $carImgOne.setAttribute('src', car[0].imgSrc)
+  $carImgOne.setAttribute('alt', car[0].year + ' ' + car[0].make + ' ' + car[0].model)
+  $firstCarImg.appendChild($carImgOne)
+
+  var $secondCarImg = document.querySelector('.second-compare-img')
+  var $carImgTwo = document.createElement('img')
+  $carImgTwo.setAttribute('class', 'car-icon')
+  $carImgTwo.setAttribute('src', car[1].imgSrc)
+  $carImgTwo.setAttribute('alt', car[1].year + ' ' + car[1].make + ' ' + car[1].model)
+  $secondCarImg.appendChild($carImgTwo)
+
+  var $firstCarName = document.querySelector('.first-car-name')
+  $firstCarName.textContent = car[0].year + ' ' + car[0].make + ' ' + car[0].model
+  var $secondCarName = document.querySelector('.second-car-name')
+  $secondCarName.textContent = car[1].year + ' ' + car[1].make + ' ' + car[1].model
+
+  var $firstCarType = document.querySelector('.first-car-type')
+  $firstCarType.textContent = car[0].specifications.vehicleType
+  var $secondCarType = document.querySelector('.second-car-type')
+  $secondCarType.textContent = car[1].specifications.vehicleType
+
+  var $firstCarMsrp = document.querySelector('.first-car-msrp')
+  $firstCarMsrp.textContent = car[0].specifications.msrp
+  var $secondCarMsrp = document.querySelector('.second-car-msrp')
+  $secondCarMsrp.textContent = car[1].specifications.msrp
+
+  var $firstCarEngine = document.querySelector('.first-car-engine')
+  $firstCarEngine.textContent = car[0].specifications.engineType
+  var $secondCarEngine = document.querySelector('.second-car-engine')
+  $secondCarEngine.textContent = car[1].specifications.engineType
+
+  var $firstCarDisplacment = document.querySelector('.first-car-displacement')
+  $firstCarDisplacment.textContent = car[0].specifications.displacement
+  var $secondCarDisplacment = document.querySelector('.second-car-displacement')
+  $secondCarDisplacment.textContent = car[1].specifications.displacement
+
+  var $firstCarTrans = document.querySelector('.first-car-trans')
+  $firstCarTrans.textContent = car[0].specifications.transmission
+  var $secondCarTrans = document.querySelector('.second-car-trans')
+  $secondCarTrans.textContent = car[1].specifications.transmission
+
+  var $firstCar060 = document.querySelector('.first-car-060')
+  $firstCar060.textContent = car[0].specifications.zeroToSixty
+  var $secondCar060 = document.querySelector('.second-car-060')
+  $secondCar060.textContent = car[1].specifications.zeroToSixty
+
+  var $firstCarDim = document.querySelector('.first-car-displacement')
+  $firstCarDim.textContent = car[0].specifications.dimensions
+  var $secondCarDim = document.querySelector('.second-car-displacement')
+  $secondCarDim.textContent = car[1].specifications.dimensions
+
+  var $firstCarLbs = document.querySelector('.first-car-lbs')
+  $firstCarLbs.textContent = car[0].specifications.curbWeight
+  var $secondCarLbs = document.querySelector('.second-car-lbs')
+  $secondCarLbs.textContent = car[1].specifications.curbWeight
+
+  var $firstCarFuelEcon = document.querySelector('.first-car-fuelecon')
+  $firstCarFuelEcon.textContent = car[0].specifications.fuelEconomy
+  var $secondCarFuelEcon = document.querySelector('.second-car-fuelecon')
+  $secondCarFuelEcon.textContent = car[1].specifications.fuelEconomy
+
+  var $buttonContainer = document.createElement('div')
+  $buttonContainer.setAttribute('class', 'col s12 button-container')
+
+  var $returnButton = document.createElement('button')
+  $returnButton.setAttribute('class', 'col s2 push s2 spec-button')
+  $returnButton.setAttribute('id', 'return-button-compare')
+  $returnButton.setAttribute('type', 'button')
+  $returnButton.textContent = 'Return to All Cars'
+
+  $compareList.appendChild($returnButton)
+}
+
+$compareList.addEventListener('click', function (event) {
+  if (event.target.tagName !== 'BUTTON') {
+    return
+  }
+  var specButton = event.target.getAttribute('id')
+  if (specButton === 'return-button-compare') {
+    $compareList.classList.add('hidden')
+    carComparisonList = []
+    $carListHeading.classList.remove('hidden')
+    $carListHeading.textContent = 'All Cars'
+    $carList.classList.remove('hidden')
+    $carList.innerHTML = ''
+  }
+  createCarLinks(cars)
 })

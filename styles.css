@@ -85,3 +85,64 @@ strong {
   background-color: #bfb39a;
   text-align: center;
 }
+
+.img-compare-container {
+  margin-top: 8%;
+}
+
+.first-compare-img {
+  position: relative;
+  margin-left: 2px;
+}
+
+.second-compare-img {
+  position: absolute;
+  margin-left: 2px;
+}
+
+.tg {
+  border-collapse: collapse;
+  border-spacing: 0;
+  border-color: #ccc;
+  margin-top: 5%;
+}
+
+.tg td {
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  padding: 10px 5px;
+  overflow: hidden;
+  word-break: normal;
+  border-color: #ccc;
+  color: #bfb39a;
+  background-color: inherit;
+}
+
+.tg th {
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  font-weight: normal;
+  padding: 76px 200px 13px 6px;
+  overflow: hidden;
+  word-break: normal;
+  border-color: #ccc;
+  color: #bfb39a;
+  background-color: inherit;
+}
+
+.tg .tg-yw4l {
+  vertical-align: top;
+}
+
+.first-col {
+  padding-right: 2%;
+}
+
+.second-col {
+  padding-left: 2%;
+}
+
+#return-button-compare {
+  margin-top: 3%;
+  margin-left: 20%;
+}
