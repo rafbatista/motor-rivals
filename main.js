@@ -40,7 +40,7 @@ var cars = [
     year: 2018,
     make: 'Cadillac',
     model: 'ATS Coupe',
-    imgSrc: 'images/cadillac-ats-coupe-2018.jpg',
+    imgSrc: 'images/cadillac-ats-coupe-2018.png',
     specifications: {
       vehicleType: 'Front-engine, Rear-wheel-drive',
       msrp: '$37,895',
