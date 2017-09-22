@@ -26,13 +26,15 @@ h3 {
   font-size: 30px;
   padding-top: 7%;
   margin-bottom: 3%;
+  margin-left: 2%;
 }
 
 .icon-title {
   display: inline-block;
   text-align: left;
-  font-family: 'Raleway', sans-serif;
-  font-size: 12px;
+  font-family: 'Cinzel', sans-serif;
+  font-size: 14px;
+  color: white;
 }
 
 .hidden {
@@ -41,7 +43,7 @@ h3 {
 
 .car-container {
   width: 100%;
-  height: 174px;
+  height: 200px;
   overflow: hidden;
   margin-top: 8%;
   cursor: pointer;
@@ -86,18 +88,15 @@ strong {
   text-align: center;
 }
 
-.img-compare-container {
-  margin-top: 8%;
+.compare-img-container {
+  width: 350px;
+  height: 250px;
+  padding-right: 7%;
 }
 
-.first-compare-img {
-  position: relative;
-  margin-left: 2px;
-}
-
-.second-compare-img {
-  position: absolute;
-  margin-left: 2px;
+.compare-img {
+  width: inherit;
+  height: inherit;
 }
 
 .tg {
@@ -107,42 +106,31 @@ strong {
   margin-top: 5%;
 }
 
-.tg td {
+.tg th {
   font-family: 'Cinzel', serif;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: normal;
+  padding: 15px 20px 7px;
+  overflow: hidden;
+  word-break: normal;
+  border-color: #ccc;
+  color: #bfb39a;
+  background-color: inherit;
+  width: 180px;
+}
+
+.tg td {
+  font-family: 'Raleway', serif;
+  font-size: 16px;
   padding: 10px 5px;
   overflow: hidden;
   word-break: normal;
   border-color: #ccc;
-  color: #bfb39a;
+  color: white;
   background-color: inherit;
-}
-
-.tg th {
-  font-family: 'Cinzel', serif;
-  font-size: 14px;
-  font-weight: normal;
-  padding: 76px 200px 13px 6px;
-  overflow: hidden;
-  word-break: normal;
-  border-color: #ccc;
-  color: #bfb39a;
-  background-color: inherit;
-}
-
-.tg .tg-yw4l {
-  vertical-align: top;
-}
-
-.first-col {
-  padding-right: 2%;
-}
-
-.second-col {
-  padding-left: 2%;
 }
 
 #return-button-compare {
-  margin-top: 3%;
-  margin-left: 20%;
+  margin-top: 6.5%;
+  margin-left: -2%;
 }
