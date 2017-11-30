@@ -134,6 +134,6 @@ MongoClient.connect('mongodb://localhost/motor-rivals', (err, db) => {
       console.error(err)
       process.exit(1)
     })
-    .then(() => console.log('Cars are seeded!'))
+    .then(() => console.log('Cars have been seeded!'))
     .then(() => db.close())
 })
